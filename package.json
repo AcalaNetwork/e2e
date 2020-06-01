@@ -1,0 +1,22 @@
+{
+  "name": "acala-e2e",
+  "private": true,
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@types/prettier": "2.0.1",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "dependencies": {
+    "@polkadot/dev": "^0.55.6"
+  }
+}
