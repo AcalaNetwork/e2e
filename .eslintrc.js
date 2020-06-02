@@ -13,6 +13,9 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-empty-function': 'off',
-    'no-useless-constructor': 'off'
+    'no-useless-constructor': 'off',
+    'header/header': 'off',
+    'sort-keys': 'off',
+    'comma-dangle': 'off'
   }
 };

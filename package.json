@@ -1,6 +1,16 @@
 {
   "name": "acala-e2e",
   "private": true,
+  "scripts": {
+    "test": "jest",
+    "lint": "polkadot-dev-run-lint"
+  },
+  "dependencies": {
+    "@acala-network/api": "^0.2.0-beta.45",
+    "@polkadot/api": "^1.16.1",
+    "@polkadot/dev": "^0.55.6",
+    "@polkadot/keyring": "^2.12.1"
+  },
   "devDependencies": {
     "@types/jest": "^25.2.3",
     "@types/prettier": "2.0.1",
@@ -16,7 +26,9 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
-  "dependencies": {
-    "@polkadot/dev": "^0.55.6"
+  "dependenciesMeta": {
+    "eslint": {
+      "unplugged": true
+    }
   }
 }
