@@ -13,6 +13,7 @@
     "@polkadot/api": "^1.16.1",
     "@polkadot/dev": "^0.55.6",
     "@polkadot/keyring": "^2.12.1",
+    "@polkadot/util": "^2.12.2",
     "@polkadot/util-crypto": "^2.12.2",
     "big.js": "^5.2.2",
     "dotenv": "^8.2.0"
