@@ -1,12 +1,13 @@
 import { config as dotenv } from 'dotenv';
 import Big from 'big.js';
 import { options } from '@acala-network/api';
-import { WsProvider, Keyring } from '@polkadot/api';
+import { WsProvider } from '@polkadot/rpc-provider';
+import { Keyring } from '@polkadot/keyring';
 import { ApiManager } from '@open-web3/api';
 import { KeyringPair } from '@polkadot/keyring/types';
 import { toBaseUnit } from '@open-web3/util';
 import { SubmittableExtrinsic } from '@polkadot/api/types';
-import { xxhashAsU8a } from '@polkadot/util';
+import { xxhashAsU8a } from '@polkadot/util-crypto';
 
 dotenv();
 
@@ -34,8 +35,6 @@ function getModulePrefix(module: string): Uint8Array {
 }
 
 export const setup = async () => {
-  jest.setTimeout(60000);
-
   const keyring = new Keyring({ type: 'sr25519' });
   const apiManager = await ApiManager.create({ ...options(), wsEndpoint: config.ws, account: config.suri, keyring });
   const api = apiManager.api;

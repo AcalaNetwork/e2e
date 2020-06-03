@@ -1,5 +1,7 @@
 import { Context, setup, dollar } from './helper';
 
+jest.setTimeout(60_000);
+
 let ctx: Context;
 
 beforeAll(async () => {
