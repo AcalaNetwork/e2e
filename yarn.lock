@@ -4,43 +4,43 @@
 __metadata:
   version: 4
 
-"@acala-network/api-derive@npm:^0.2.0-beta.46":
-  version: 0.2.0-beta.46
-  resolution: "@acala-network/api-derive@npm:0.2.0-beta.46"
+"@acala-network/api-derive@npm:^0.2.0-beta.49":
+  version: 0.2.0-beta.49
+  resolution: "@acala-network/api-derive@npm:0.2.0-beta.49"
   dependencies:
-    "@acala-network/types": ^0.2.0-beta.46
+    "@acala-network/types": ^0.2.0-beta.49
     "@babel/runtime": ^7.8.0
     "@polkadot/rpc-core": ^1.13.1
     memoizee: ^0.4.14
     rxjs: ^6.5.5
-  checksum: 3/2575cd2230b7f8294146f5be0b8b53f04e5409fe5ab17c5475761649f19e7b90c3549210e0c057182539ba9263d8289b08ebcefae5b04131458593bce0659017
+  checksum: 3/b1f6fe970a3c6a50e6082c0aa47a6e15c13abd9194f262bbc5abfb2cc39da6fd74039480e098ec48c2fac9fdb2a099d19912bdb4aa62ab163e350c15b2280f2f
   languageName: node
   linkType: hard
 
-"@acala-network/api@npm:^0.2.0-beta.46":
-  version: 0.2.0-beta.46
-  resolution: "@acala-network/api@npm:0.2.0-beta.46"
+"@acala-network/api@npm:^0.2.0-beta.49":
+  version: 0.2.0-beta.49
+  resolution: "@acala-network/api@npm:0.2.0-beta.49"
   dependencies:
-    "@acala-network/api-derive": ^0.2.0-beta.46
-    "@acala-network/types": ^0.2.0-beta.46
+    "@acala-network/api-derive": ^0.2.0-beta.49
+    "@acala-network/types": ^0.2.0-beta.49
     "@babel/runtime": ^7.8.0
-    "@open-web3/orml-api-derive": ^0.3.0-beta.15
+    "@open-web3/orml-api-derive": ^0.3.0-beta.18
     "@polkadot/api": ^1.13.1
     "@polkadot/rpc-core": ^1.13.1
-  checksum: 3/51ff79b3b919a04efe2980b15a64e0eae42316176ad2c609e7983b6667ac25f6a5904983277128c45c98a48adef8ed3a7d1c0fbc2b89914ef69311b08b6f6eb9
+  checksum: 3/c7985676434edee6c95fcd1c773317c5fa2d65500e57ba547cdb8a19675556cddb60750e8bfebfe38ba2f04752e6c7706d833b5c6c77ef51dece48b57641683f
   languageName: node
   linkType: hard
 
-"@acala-network/types@npm:^0.2.0-beta.46":
-  version: 0.2.0-beta.46
-  resolution: "@acala-network/types@npm:0.2.0-beta.46"
+"@acala-network/types@npm:^0.2.0-beta.49":
+  version: 0.2.0-beta.49
+  resolution: "@acala-network/types@npm:0.2.0-beta.49"
   dependencies:
     "@babel/runtime": ^7.8.0
-    "@open-web3/orml-types": ^0.3.0-beta.15
+    "@open-web3/orml-types": ^0.3.0-beta.18
     "@polkadot/api": ^1.13.1
     "@polkadot/typegen": ^1.13.1
     "@polkadot/types": ^1.13.1
-  checksum: 3/a8df494935cc3ffb3a48aad8467d84a4273a7872ab4592e8270050bf6276c404075e04c688edccbeae34e48d4c6cfcdfc82225cae0ed6fd7970c8fa2e0179a99
+  checksum: 3/517df68c8200577bc7655d6a7853e2b1a1111cff05c77ab49911a0c5d46823ce499d35d58718a350aa5adbc56f1d135a611b11851f47b308e71756296b207346
   languageName: node
   linkType: hard
 
@@ -2704,22 +2704,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@open-web3/api@npm:0.3.0-beta.17":
-  version: 0.3.0-beta.17
-  resolution: "@open-web3/api@npm:0.3.0-beta.17"
+"@open-web3/api@npm:0.3.0-beta.18":
+  version: 0.3.0-beta.18
+  resolution: "@open-web3/api@npm:0.3.0-beta.18"
   dependencies:
     "@babel/runtime": ^7.8.4
-    "@open-web3/util": ^0.3.0-beta.17
+    "@open-web3/util": ^0.3.0-beta.18
   peerDependencies:
     "@polkadot/api": ^1.12.1
     "@polkadot/util-crypto": ^1.12.1
-  checksum: 3/dc1c8eb7ca3aba3db37456813e0b1915a536391ba2da08eca53687cc3794a5df64240343259133724da29a4d3b53177acb56b2c4f6f4b19361b1eb2f2363f754
+  checksum: 3/58adb69c3c96268a709cd085c5639374f634203a36d883abdc8c8edb11dce3ac9c89357eb095fc648c71c9f503486716acb9687900722f786471a33b967f924e
   languageName: node
   linkType: hard
 
-"@open-web3/orml-api-derive@npm:^0.3.0-beta.15":
-  version: 0.3.0-beta.15
-  resolution: "@open-web3/orml-api-derive@npm:0.3.0-beta.15"
+"@open-web3/orml-api-derive@npm:^0.3.0-beta.18":
+  version: 0.3.0-beta.18
+  resolution: "@open-web3/orml-api-derive@npm:0.3.0-beta.18"
   dependencies:
     "@babel/runtime": ^7.8.4
     memoizee: ^0.4.14
@@ -2727,33 +2727,33 @@ __metadata:
   peerDependencies:
     "@polkadot/api": ^1.12.1
     "@polkadot/rpc-core": ^1.12.1
-  checksum: 3/edede8de45bc7214a2b21b0267a73be8f52153d089bd0839d027503c44760d123dcd0af4a9ccf94824b4bf3b391544023c58336818332bcd7f7891bff13457e1
+  checksum: 3/91539d18f185838e1491c750526b91965e744f345eaff7f11f4887cabfc3b010983529f6b79cd8f84ddeed01d3db77b23ef929b0146c340844c0406a7bbe2ffa
   languageName: node
   linkType: hard
 
-"@open-web3/orml-types@npm:^0.3.0-beta.15":
-  version: 0.3.0-beta.15
-  resolution: "@open-web3/orml-types@npm:0.3.0-beta.15"
+"@open-web3/orml-types@npm:^0.3.0-beta.18":
+  version: 0.3.0-beta.18
+  resolution: "@open-web3/orml-types@npm:0.3.0-beta.18"
   dependencies:
     "@babel/runtime": ^7.8.4
   peerDependencies:
     "@polkadot/api": ^1.12.1
     "@polkadot/typegen": ^1.12.1
     "@polkadot/types": ^1.12.1
-  checksum: 3/5c92917550f748724aa113e4e6252a729d3c80db9005b8dd0c7741c33c33891a38e43d4b3cb8cdcf9a8e8d1987ac02582271dfc9f92f1d919b2d891bbdd1c94c
+  checksum: 3/570a7d676e7320eaf204485988d8a244836c8c4fe6bd7f42b123d5767c37ba1c6b809f8c17718268e67cceb210902cd0e2e9bc902e3b429e33015a8079be7344
   languageName: node
   linkType: hard
 
-"@open-web3/util@npm:0.3.0-beta.17, @open-web3/util@npm:^0.3.0-beta.17":
-  version: 0.3.0-beta.17
-  resolution: "@open-web3/util@npm:0.3.0-beta.17"
+"@open-web3/util@npm:0.3.0-beta.18, @open-web3/util@npm:^0.3.0-beta.18":
+  version: 0.3.0-beta.18
+  resolution: "@open-web3/util@npm:0.3.0-beta.18"
   dependencies:
     "@babel/runtime": ^7.8.4
     "@yarnpkg/lockfile": ^1.1.0
     big.js: ^5.2.2
   bin:
     orml-check-deps: src/scripts/check-deps.js
-  checksum: 3/6f4b39401b3f17f1abb5966521ab930529c760f5d8e11ac4a0d7e91f19b089aef228d7abd6caffcd0ec7c5c26f43195f71b268032437cd188299c79c718b543d
+  checksum: 3/8aad6426e52f46493975340fd0b52ee8b0b580c61b14290e6ae95a734c94205f9436bbada2d75016df87b6719d188b8d92e9367e7cfd6bee75873da99f3bdd0d
   languageName: node
   linkType: hard
 
@@ -4028,9 +4028,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "acala-e2e@workspace:."
   dependencies:
-    "@acala-network/api": ^0.2.0-beta.46
-    "@open-web3/api": 0.3.0-beta.17
-    "@open-web3/util": 0.3.0-beta.17
+    "@acala-network/api": ^0.2.0-beta.49
+    "@open-web3/api": 0.3.0-beta.18
+    "@open-web3/util": 0.3.0-beta.18
     "@polkadot/api": ^1.16.1
     "@polkadot/dev": ^0.55.6
     "@polkadot/keyring": ^2.12.1

@@ -8,9 +8,9 @@
     "lint": "polkadot-dev-run-lint"
   },
   "dependencies": {
-    "@acala-network/api": "^0.2.0-beta.46",
-    "@open-web3/api": "0.3.0-beta.17",
-    "@open-web3/util": "0.3.0-beta.17",
+    "@acala-network/api": "^0.2.0-beta.49",
+    "@open-web3/api": "0.3.0-beta.18",
+    "@open-web3/util": "0.3.0-beta.18",
     "@polkadot/api": "^1.16.1",
     "@polkadot/dev": "^0.55.6",
     "@polkadot/keyring": "^2.12.1",
