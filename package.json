@@ -1,6 +1,6 @@
 {
   "name": "acala-e2e",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "scripts": {
     "build": "tsc",
     "test": "yarn jest --testPathIgnorePatterns e2e",
