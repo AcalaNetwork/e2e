@@ -1,6 +1,7 @@
 {
   "name": "@acala-network/e2e",
   "version": "0.1.12",
+  "main": "lib/index.js",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -11,7 +12,7 @@
     "test:e2e": "yarn jest",
     "jest": "jest --runInBand --passWithNoTests",
     "lint": "polkadot-dev-run-lint",
-    "polkadot-dev-ghact-build": "scripts/polkadot-dev-ghact-build"
+    "build-and-publish": "scripts/build-and-publish"
   },
   "dependencies": {
     "@acala-network/api": "^0.2.0-beta.49",
