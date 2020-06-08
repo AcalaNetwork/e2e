@@ -6,7 +6,7 @@
     "build": "tsc",
     "test": "yarn jest --testPathIgnorePatterns e2e",
     "test:e2e": "yarn jest",
-    "jest": "jest --runInBand",
+    "jest": "jest --runInBand --passWithNoTests",
     "lint": "polkadot-dev-run-lint",
     "polkadot-dev-ghact-build": "scripts/polkadot-dev-ghact-build"
   },
