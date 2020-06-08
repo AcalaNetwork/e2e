@@ -1,4 +1,4 @@
-import { Context, setup, dollar } from './helper';
+import { Context, setup, dollar } from '../helper';
 import { ApiPromise } from '@polkadot/api';
 
 jest.setTimeout(60_000);
@@ -25,7 +25,7 @@ test('test', async () => {
   await ctx.updateBalance(alice, 'XBTC', dollar(10)).send;
   await ctx.updateBalance(bob, 'XBTC', dollar(101)).send;
   await ctx.updateBalance(bob, 'AUSD', dollar(1_000_000)).send;
-  await ctx.feedPrice('XBTC', dollar(10000));
+  await ctx.feedPrice('XBTC', dollar(10000)).send;
   await ctx.send(ctx.tx.dex.addLiquidity('XBTC', dollar(100), dollar(1_000_000))).send;
   await ctx.sudo(
     ctx.tx.cdpEngine.setCollateralParams(
