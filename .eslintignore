@@ -3,4 +3,3 @@
 .eslintrc.js
 lib
 **/__tests__/**
-.npmrc
