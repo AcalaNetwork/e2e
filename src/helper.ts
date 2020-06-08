@@ -38,7 +38,7 @@ export const setup = async () => {
   const keyring = new Keyring({ type: 'sr25519' });
   const apiManager = await ApiManager.create({ ...options(), wsEndpoint: config.ws, account: config.suri, keyring });
   const api = apiManager.api;
-  const account = apiManager.defaultAccount!;
+  const account = apiManager.defaultAccount!; // eslint-disable-line
 
   return {
     apiManager,

@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "yarn jest",
-    "jest": "jest --runInBand",
-    "lint": "polkadot-dev-run-lint"
+    "build": "tsc",
+    "test": "yarn jest --testPathIgnorePatterns e2e",
+    "test:e2e": "yarn jest",
+    "jest": "jest --runInBand --passWithNoTests",
+    "lint": "polkadot-dev-run-lint",
+    "polkadot-dev-ghact-build": "scripts/polkadot-dev-ghact-build"
   },
   "dependencies": {
     "@acala-network/api": "^0.2.0-beta.49",
