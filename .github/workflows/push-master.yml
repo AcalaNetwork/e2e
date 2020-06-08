@@ -27,4 +27,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          yarn run polkadot-dev-ghact-build
+          yarn install --immutable-cache
+          yarn polkadot-dev-ghact-build
