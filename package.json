@@ -1,6 +1,10 @@
 {
   "name": "acala-e2e",
   "version": "0.1.8",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "scripts": {
     "build": "tsc",
     "test": "yarn jest --testPathIgnorePatterns e2e",
