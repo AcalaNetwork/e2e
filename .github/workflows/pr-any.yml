@@ -21,7 +21,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: lint
         run: |
-          yarn lint
+          yarn run lint
 
   test:
     runs-on: ubuntu-latest
@@ -38,4 +38,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: test
         run: |
-          yarn test
+          yarn run test
