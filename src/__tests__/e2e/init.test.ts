@@ -1,4 +1,4 @@
-import { Context, setup, dollar } from '../helper';
+import { Context, setup, dollar } from '../../helper';
 import { ApiPromise } from '@polkadot/api';
 
 jest.setTimeout(60_000);
