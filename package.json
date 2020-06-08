@@ -1,5 +1,5 @@
 {
-  "name": "acala-e2e",
+  "name": "@acala-network/e2e",
   "version": "0.1.9",
   "publishConfig": {
     "access": "public",
