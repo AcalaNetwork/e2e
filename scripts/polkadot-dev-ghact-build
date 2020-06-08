@@ -60,10 +60,7 @@ function npm_bump () {
   echo ""
   echo "*** Incrementing npm version"
 
-  yarn config set version-sign-git-tag false
-  yarn config set version-git-tag false
-  yarn config set version-git-message "$GIT_MESSAGE"
-  yarn version --new-version $BUMP_VERSION
+  npm --no-git-tag-version --force version patch
   git add --all .
 
   echo ""
@@ -93,7 +90,7 @@ function npm_publish () {
   echo "*** Copying package files to build"
 
   mkdir build
-  cp -r bin lib build/
+  cp -r lib build/
   cp LICENSE README.md package.json build/
 
   echo ""
@@ -113,7 +110,7 @@ function npm_publish () {
   # yarn config set registry "https://$NPMREG"
 
   while true; do
-    (yarn publish --network-timeout 60000 --access public --new-version $NPM_VERSION $TAG) && break || {
+    (yarn npm publish --network-timeout 60000 --access public --new-version $NPM_VERSION $TAG) && break || {
       if [[ $n -lt 5 ]]; then
         echo "Publish failed on attempt $n/5. Retrying in 15s."
         ((n++))
