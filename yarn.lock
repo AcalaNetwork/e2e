@@ -31,6 +31,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@acala-network/e2e@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@acala-network/e2e@workspace:."
+  dependencies:
+    "@acala-network/api": ^0.2.0-beta.49
+    "@open-web3/api": 0.3.0-beta.18
+    "@open-web3/util": 0.3.0-beta.18
+    "@polkadot/api": ^1.16.1
+    "@polkadot/dev": ^0.55.6
+    "@polkadot/keyring": ^2.12.1
+    "@polkadot/rpc-provider": ^1.16.1
+    "@polkadot/util": ^2.12.2
+    "@polkadot/util-crypto": ^2.12.2
+    "@types/big.js": 4.0.5
+    "@types/bn.js": 4.11.6
+    "@types/jest": ^25.2.3
+    "@types/prettier": 2.0.1
+    big.js: ^5.2.2
+    dotenv: ^8.2.0
+    husky: ^4.2.5
+    jest: ^26.0.1
+    prettier: ^2.0.5
+    pretty-quick: ^2.0.1
+    ts-jest: ^26.1.0
+    typescript: ^3.9.3
+  dependenciesMeta:
+    eslint:
+      unplugged: true
+  languageName: unknown
+  linkType: soft
+
 "@acala-network/types@npm:^0.2.0-beta.49":
   version: 0.2.0-beta.49
   resolution: "@acala-network/types@npm:0.2.0-beta.49"
@@ -4023,37 +4054,6 @@ __metadata:
   checksum: 3/9f9236a3cc7f56c167be3aa81c77fcab2e08dfb8047b7861b91440f20b299b9442255856bdbe9d408d7e96a0b64a36e1c27384251126962490b4eee841b533e0
   languageName: node
   linkType: hard
-
-"acala-e2e@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "acala-e2e@workspace:."
-  dependencies:
-    "@acala-network/api": ^0.2.0-beta.49
-    "@open-web3/api": 0.3.0-beta.18
-    "@open-web3/util": 0.3.0-beta.18
-    "@polkadot/api": ^1.16.1
-    "@polkadot/dev": ^0.55.6
-    "@polkadot/keyring": ^2.12.1
-    "@polkadot/rpc-provider": ^1.16.1
-    "@polkadot/util": ^2.12.2
-    "@polkadot/util-crypto": ^2.12.2
-    "@types/big.js": 4.0.5
-    "@types/bn.js": 4.11.6
-    "@types/jest": ^25.2.3
-    "@types/prettier": 2.0.1
-    big.js: ^5.2.2
-    dotenv: ^8.2.0
-    husky: ^4.2.5
-    jest: ^26.0.1
-    prettier: ^2.0.5
-    pretty-quick: ^2.0.1
-    ts-jest: ^26.1.0
-    typescript: ^3.9.3
-  dependenciesMeta:
-    eslint:
-      unplugged: true
-  languageName: unknown
-  linkType: soft
 
 "accepts@npm:~1.3.4, accepts@npm:~1.3.5, accepts@npm:~1.3.7":
   version: 1.3.7
