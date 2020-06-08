@@ -21,7 +21,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: lint
         run: |
-          yarn install --immutable-cache
+          yarn install --immutable
           yarn run lint
 
   test:
@@ -39,5 +39,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: test
         run: |
-          yarn install --immutable-cache
+          yarn install --immutable
           yarn run test
