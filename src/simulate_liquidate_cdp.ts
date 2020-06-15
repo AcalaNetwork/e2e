@@ -27,7 +27,7 @@ const main = async () => {
   await ctx.send(ctx.tx.honzon.adjustLoan('XBTC', dollar(10), dollar(500_000)), alice).send;
   await ctx.send(ctx.tx.honzon.adjustLoan('XBTC', dollar(1), dollar(50_000)), bob).inBlock;
 
-  ctx.tx.cdpEngine.liquidate('XBTC', alice.address).send();
+  await ctx.tx.cdpEngine.liquidate('XBTC', alice.address).send();
 };
 
 main().catch((error) => {
