@@ -1,5 +1,5 @@
 .pnp.js
 .yarn
 .eslintrc.js
-lib
+build
 **/__tests__/**

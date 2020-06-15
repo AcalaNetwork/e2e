@@ -59,6 +59,8 @@ __metadata:
   dependenciesMeta:
     eslint:
       unplugged: true
+  bin:
+    simulate-liquidate-cdp: simulate_liquidate_cdp.js
   languageName: unknown
   linkType: soft
 

@@ -6,6 +6,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
+  "bin": {
+    "simulate-liquidate-cdp": "simulate_liquidate_cdp.js"
+  },
   "scripts": {
     "build": "tsc",
     "test": "yarn jest --testPathIgnorePatterns e2e",
