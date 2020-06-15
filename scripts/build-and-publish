@@ -89,8 +89,6 @@ function npm_publish () {
   echo ""
   echo "*** Copying package files to build"
 
-  mkdir build
-  cp -r lib build/
   cp LICENSE README.md package.json .npmrc build/
 
   echo ""

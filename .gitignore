@@ -110,5 +110,5 @@ dist
 .pnp.*
 .vscode
 
-lib
+build
 .npmrc
