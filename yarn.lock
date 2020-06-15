@@ -36,8 +36,8 @@ __metadata:
   resolution: "@acala-network/e2e@workspace:."
   dependencies:
     "@acala-network/api": ^0.2.0-beta.49
-    "@open-web3/api": 0.3.0-beta.18
-    "@open-web3/util": 0.3.0-beta.18
+    "@open-web3/api": ^0.3.0-beta.19
+    "@open-web3/util": ^0.3.0-beta.19
     "@polkadot/api": ^1.16.1
     "@polkadot/dev": ^0.55.6
     "@polkadot/keyring": ^2.12.1
@@ -2737,16 +2737,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@open-web3/api@npm:0.3.0-beta.18":
-  version: 0.3.0-beta.18
-  resolution: "@open-web3/api@npm:0.3.0-beta.18"
+"@open-web3/api@npm:^0.3.0-beta.19":
+  version: 0.3.0-beta.20
+  resolution: "@open-web3/api@npm:0.3.0-beta.20"
   dependencies:
     "@babel/runtime": ^7.8.4
-    "@open-web3/util": ^0.3.0-beta.18
+    "@open-web3/util": ^0.3.0-beta.20
   peerDependencies:
     "@polkadot/api": ^1.12.1
     "@polkadot/util-crypto": ^1.12.1
-  checksum: 3/58adb69c3c96268a709cd085c5639374f634203a36d883abdc8c8edb11dce3ac9c89357eb095fc648c71c9f503486716acb9687900722f786471a33b967f924e
+  checksum: 3/24531db91a9bbda49fd1f39a70d8f579f26b9f824ac25b752a8faa9ebc3219d89bfa96164b969443d0d51c97e8e270da27fad2a6741da5f26788f08b7fcda7cb
   languageName: node
   linkType: hard
 
@@ -2777,16 +2777,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@open-web3/util@npm:0.3.0-beta.18, @open-web3/util@npm:^0.3.0-beta.18":
-  version: 0.3.0-beta.18
-  resolution: "@open-web3/util@npm:0.3.0-beta.18"
+"@open-web3/util@npm:^0.3.0-beta.19, @open-web3/util@npm:^0.3.0-beta.20":
+  version: 0.3.0-beta.20
+  resolution: "@open-web3/util@npm:0.3.0-beta.20"
   dependencies:
     "@babel/runtime": ^7.8.4
     "@yarnpkg/lockfile": ^1.1.0
     big.js: ^5.2.2
-  bin:
-    orml-check-deps: src/scripts/check-deps.js
-  checksum: 3/8aad6426e52f46493975340fd0b52ee8b0b580c61b14290e6ae95a734c94205f9436bbada2d75016df87b6719d188b8d92e9367e7cfd6bee75873da99f3bdd0d
+  checksum: 3/f151f3f06e4caac716acbfd3eb58f180750cf276b7dfacf135771267e509111ee0eb4a762f157d833d4fc01535d438bb3cce4177571f33b47ec1835904be7e39
   languageName: node
   linkType: hard
 
