@@ -1,43 +1,47 @@
 #!/usr/bin/env node
 
-import { Context, setup, dollar } from './helper';
+import { Context, setup, rate, ratio, price, aca, ausd, renbtc } from './helper';
 
-const main = async () => {
+const ACA = { token: 'ACA' };
+const AUSD = { token: 'AUSD' };
+const RENBTC = { token: 'RENBTC' };
+
+(async () => {
   const ctx: Context = await setup();
-  const accounts = await ctx.makeAccounts(2);
-  const [alice, bob] = accounts;
-  await ctx.updateBalance(alice, 'XBTC', dollar(10_000_000)).send;
-  await ctx.updateBalance(bob, 'XBTC', dollar(101)).send;
-  await ctx.updateBalance(bob, 'AUSD', dollar(1_000_000)).send;
+  const [alice, bob] = await ctx.makeAccounts(2);
 
-  await ctx.updateBalance(alice, 'AUSD', dollar(10_000_000)).send;
+  await ctx.updateBalance(alice, AUSD, ausd(10_000_000)).send;
+  await ctx.updateBalance(alice, RENBTC, renbtc(10_000_000)).send;
+
+  await ctx.updateBalance(bob, AUSD, ausd(1_000_000)).send;
+  await ctx.updateBalance(bob, RENBTC, renbtc(101)).send;
 
   const bidder = process.env.BIDDER_ADDRESS;
   if (bidder) {
     // give bidder lots of money
-    await ctx.updateBalance(bidder, 'AUSD', dollar(1_000_000)).send;
-    await ctx.updateBalance(bidder, 'ACA', dollar(1_000)).send;
+    await ctx.updateBalance(bidder, AUSD, ausd(1_000_000)).send;
+    await ctx.updateBalance(bidder, ACA, aca(1_000)).send;
   }
 
-  await ctx.feedPrice('XBTC', dollar(10000)).send;
-  await ctx.send(ctx.tx.dex.addLiquidity('XBTC', dollar(100), dollar(1_000_000)), alice).send;
+  await ctx.feedPrice(RENBTC, price(10_000)).send;
+  await ctx.send(ctx.tx.dex.addLiquidity(AUSD, RENBTC, ausd(100), renbtc(1_000_000), 0, false), alice).send;
   await ctx.sudo(
     ctx.tx.cdpEngine.setCollateralParams(
-      'XBTC',
-      { NewValue: 0 }, // stability_fee
-      { NewValue: dollar(2) }, // liquidation_ratio
-      { NewValue: dollar('0.2') }, // liquidation_penalty
-      { NewValue: dollar(2) }, // required_collateral_ratio
-      { NewValue: dollar(1000000) } // maximum_total_debit_value
+      RENBTC,
+      { NewValue: rate(0) }, // stability_fee
+      { NewValue: ratio(2) }, // liquidation_ratio
+      { NewValue: rate('0.2') }, // liquidation_penalty
+      { NewValue: ratio(2) }, // required_collateral_ratio
+      { NewValue: ausd(1_000_000) } // maximum_total_debit_value
     )
   ).send;
-  await ctx.send(ctx.tx.honzon.adjustLoan('XBTC', dollar(10), dollar(500_000)), alice).send;
-  await ctx.send(ctx.tx.honzon.adjustLoan('XBTC', dollar(1), dollar(50_000)), bob).inBlock;
+  await ctx.send(ctx.tx.honzon.adjustLoan(RENBTC, renbtc(10), ausd(500_000)), alice).send;
+  await ctx.send(ctx.tx.honzon.adjustLoan(RENBTC, renbtc(1), ausd(50_000)), bob).inBlock;
 
-  await ctx.tx.cdpEngine.liquidate('XBTC', alice.address).send();
-};
-
-main().catch((error) => {
-  console.error(error);
-  process.exit(-1);
-});
+  await ctx.tx.cdpEngine.liquidate(RENBTC, alice.address).send();
+})()
+  .then(() => process.exit())
+  .catch((error) => {
+    console.error(error);
+    process.exit(-1);
+  });

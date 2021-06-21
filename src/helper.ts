@@ -5,7 +5,6 @@ import { WsProvider } from '@polkadot/rpc-provider';
 import { Keyring } from '@polkadot/keyring';
 import { ApiManager } from '@open-web3/api';
 import { KeyringPair } from '@polkadot/keyring/types';
-import { toBaseUnit } from '@open-web3/util';
 import { SubmittableExtrinsic } from '@polkadot/api/types';
 import { xxhashAsHex } from '@polkadot/util-crypto';
 
@@ -26,7 +25,15 @@ export const createApi = async () => {
   };
 };
 
-export const dollar = (x: BalanceType) => toBaseUnit(x).toFixed();
+export const fixed = (x: BalanceType) => Big(x).mul(Big('1e+18')).toFixed(0);
+export const aca = (x: BalanceType) => Big(x).mul(Big('1e+12')).toFixed(0);
+export const ausd = (x: BalanceType) => Big(x).mul(Big('1e+12')).toFixed(0);
+export const renbtc = (x: BalanceType) => Big(x).mul(Big('1e+10')).toFixed(0);
+
+export const price = fixed;
+export const exchangeRate = fixed;
+export const ratio = fixed;
+export const rate = fixed;
 
 export type BalanceType = Big | number | string;
 
@@ -50,11 +57,12 @@ export const setup = async () => {
       this.api.disconnect();
       await new Promise((resolve) => setTimeout(resolve, 2000)); // give some time to cleanup
     },
-    async makeAccounts(count: number, bal: BalanceType = toBaseUnit(1)) {
+    async makeAccounts(count: number, bal: BalanceType = aca(1)) {
       const random = Math.random().toString(16).substr(2, 6);
       const accounts = new Array(count).fill(null).map((_, i) => this.account.derive(`//${random}//${i}`));
       if (bal > 0) {
-        await this.updateBalance(accounts, api.consts.currencies.nativeCurrencyId.toString(), bal).inBlock;
+        const currencyId = api.consts.currencies.getNativeCurrencyId.toJSON();
+        await this.updateBalance(accounts, currencyId, bal).inBlock;
       }
       console.log(
         'Accounts: ',
@@ -62,7 +70,7 @@ export const setup = async () => {
       );
       return accounts;
     },
-    updateBalance(acc: string | KeyringPair | Array<string | KeyringPair>, currency: string, val: BalanceType) {
+    updateBalance(acc: string | KeyringPair | Array<string | KeyringPair>, currency: any, val: BalanceType) {
       const accounts = ([] as Array<string | KeyringPair>)
         .concat(acc)
         .map((x) => (typeof x === 'string' ? x : x.address));
@@ -73,9 +81,9 @@ export const setup = async () => {
         )
       );
     },
-    feedPrice(currency: string, price: BalanceType) {
+    feedPrice(currency: any, price: BalanceType) {
       const values = [[currency, new Big(price).toFixed()]];
-      return this.sudo(this.api.tx.oracle.feedValues(values, 0, new Uint8Array()));
+      return this.sudo(this.api.tx.acalaOracle.feedValues(values));
     },
     send(call: SubmittableExtrinsic<'promise'>, account?: KeyringPair) {
       return this.apiManager.signAndSend(call, { account });

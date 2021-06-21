@@ -6,6 +6,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
+  "resolutions": {
+    "typescript": "4.0.5"
+  },
   "bin": {
     "simulate-liquidate-cdp": "simulate_liquidate_cdp.js"
   },
@@ -13,38 +16,40 @@
     "build": "tsc",
     "test": "yarn jest --testPathIgnorePatterns e2e",
     "test:e2e": "yarn jest",
-    "jest": "jest --runInBand --passWithNoTests",
+    "jest": "polkadot-dev-run-test --runInBand --passWithNoTests --verbose",
     "lint": "polkadot-dev-run-lint",
-    "build-and-publish": "scripts/build-and-publish"
+    "build-and-publish": "scripts/build-and-publish",
+    "dev:simulate_liquidate_cdp": "ts-node src/simulate_liquidate_cdp.ts"
   },
   "dependencies": {
-    "@acala-network/api": "^0.2.0-beta.49",
-    "@open-web3/api": "^0.3.0-beta.19",
-    "@open-web3/util": "^0.3.0-beta.19",
-    "@polkadot/api": "^1.16.1",
-    "@polkadot/dev": "^0.55.6",
-    "@polkadot/keyring": "^2.12.1",
-    "@polkadot/rpc-provider": "^1.16.1",
-    "@polkadot/util": "^2.12.2",
-    "@polkadot/util-crypto": "^2.12.2",
-    "big.js": "^5.2.2",
-    "dotenv": "^8.2.0"
+    "@acala-network/api": "^0.7.4-18",
+    "@open-web3/api": "^0.9.4-9",
+    "@open-web3/util": "^0.9.4-9",
+    "@polkadot/api": "^4.14.1",
+    "@polkadot/dev": "^0.62.42",
+    "@polkadot/keyring": "^6.8.1",
+    "@polkadot/rpc-provider": "^4.14.1",
+    "@polkadot/util": "^6.8.1",
+    "@polkadot/util-crypto": "^6.8.1",
+    "big.js": "^6.1.1",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
-    "@types/big.js": "4.0.5",
-    "@types/bn.js": "4.11.6",
-    "@types/jest": "^25.2.3",
-    "@types/prettier": "2.0.1",
-    "husky": "^4.2.5",
-    "jest": "^26.0.1",
-    "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1",
-    "ts-jest": "^26.1.0",
-    "typescript": "^3.9.3"
+    "@open-web3/dev-config": "^0.1.13",
+    "@types/big.js": "6.1.1",
+    "@types/bn.js": "5.1.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.3",
+    "@types/prettier": "2.3.0",
+    "husky": "^6.0.0",
+    "jest": "^27.0.4",
+    "prettier": "^2.3.1",
+    "pretty-quick": "^3.1.1",
+    "ts-node": "^10.0.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "yarn pretty-quick --staged"
     }
   },
   "dependenciesMeta": {
