@@ -1,6 +1,6 @@
 {
   "name": "@acala-network/e2e",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "main": "lib/index.js",
   "publishConfig": {
     "access": "public",
