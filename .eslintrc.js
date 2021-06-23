@@ -14,6 +14,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
     'no-useless-constructor': 'off',
     'header/header': 'off',
     'sort-keys': 'off',

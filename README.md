@@ -17,3 +17,6 @@ optional env args
 ```
 process.env.BIDDER_ADDRESS # will give bidder 1m aUSD and 1k ACA
 ```
+
+## Development
+- Run e2e tests: `BINARY_PATH=<acala binary path> yarn test:e2e`
