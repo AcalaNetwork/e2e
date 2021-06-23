@@ -15,9 +15,10 @@ export const config = {
   suri: process.env.SURI || '//Alice'
 };
 
-export const createApi = async () => {
-  const ws = new WsProvider(config.ws);
-  const apiManager = await ApiManager.create(options({ provider: ws }));
+export const createApi = async (extend?: Partial<typeof config>) => {
+  const { ws } = { ...config, ...extend };
+  const provider = new WsProvider(ws);
+  const apiManager = await ApiManager.create(options({ provider }));
 
   return {
     apiManager,
@@ -25,15 +26,21 @@ export const createApi = async () => {
   };
 };
 
-export const fixed = (x: BalanceType) => Big(x).mul(Big('1e+18')).toFixed(0);
+export const fixed18 = (x: BalanceType) => Big(x).mul(Big('1e+18')).toFixed(0);
 export const aca = (x: BalanceType) => Big(x).mul(Big('1e+12')).toFixed(0);
 export const ausd = (x: BalanceType) => Big(x).mul(Big('1e+12')).toFixed(0);
-export const renbtc = (x: BalanceType) => Big(x).mul(Big('1e+10')).toFixed(0);
+export const dot = (x: BalanceType) => Big(x).mul(Big('1e+10')).toFixed(0);
+export const ldot = (x: BalanceType) => Big(x).mul(Big('1e+10')).toFixed(0);
+export const renbtc = (x: BalanceType) => Big(x).mul(Big('1e+8')).toFixed(0);
+export const kar = (x: BalanceType) => Big(x).mul(Big('1e+12')).toFixed(0);
+export const kusd = (x: BalanceType) => Big(x).mul(Big('1e+12')).toFixed(0);
+export const ksm = (x: BalanceType) => Big(x).mul(Big('1e+12')).toFixed(0);
+export const lksm = (x: BalanceType) => Big(x).mul(Big('1e+12')).toFixed(0);
 
-export const price = fixed;
-export const exchangeRate = fixed;
-export const ratio = fixed;
-export const rate = fixed;
+export const price = fixed18;
+export const exchangeRate = fixed18;
+export const ratio = fixed18;
+export const rate = fixed18;
 
 export type BalanceType = Big | number | string;
 
@@ -41,9 +48,10 @@ function getModulePrefix(module: string): string {
   return xxhashAsHex(module, 128);
 }
 
-export const setup = async () => {
+export const setup = async (extend?: Partial<typeof config>) => {
+  const { ws, suri } = { ...config, ...extend };
   const keyring = new Keyring({ type: 'sr25519' });
-  const apiManager = await ApiManager.create({ ...options(), wsEndpoint: config.ws, account: config.suri, keyring });
+  const apiManager = await ApiManager.create({ ...options(), wsEndpoint: ws, account: suri, keyring });
   const api = apiManager.api;
   const account = apiManager.defaultAccount!; // eslint-disable-line
 
@@ -82,7 +90,7 @@ export const setup = async () => {
       );
     },
     feedPrice(currency: any, price: BalanceType) {
-      const values = [[currency, new Big(price).toFixed()]];
+      const values = [[currency, price]];
       return this.sudo(this.api.tx.acalaOracle.feedValues(values));
     },
     send(call: SubmittableExtrinsic<'promise'>, account?: KeyringPair) {
