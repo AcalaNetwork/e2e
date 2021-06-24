@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { simulateLiquidateCDP } from "../simulate_liquidate_cdp";
+import { simulateLiquidateCDP } from '../simulate_liquidate_cdp';
 
 simulateLiquidateCDP()
   .then(() => process.exit())

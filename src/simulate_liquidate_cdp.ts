@@ -37,4 +37,4 @@ export const simulateLiquidateCDP = async () => {
   await ctx.send(ctx.tx.honzon.adjustLoan(RENBTC, renbtc(1), ausd(50_000)), bob).inBlock;
 
   await ctx.tx.cdpEngine.liquidate(RENBTC, alice.address).send();
-}
+};
