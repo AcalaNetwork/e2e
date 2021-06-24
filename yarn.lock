@@ -56,7 +56,7 @@ __metadata:
     pretty-quick: ^3.1.1
     ts-node: ^10.0.0
   bin:
-    simulate-liquidate-cdp: simulate_liquidate_cdp.js
+    simulate-liquidate-cdp: scripts/simulate_liquidate_cdp.js
   languageName: unknown
   linkType: soft
 

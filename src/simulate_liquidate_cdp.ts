@@ -1,12 +1,10 @@
-#!/usr/bin/env node
-
 import { Context, setup, rate, ratio, price, aca, ausd, renbtc } from './helper';
 
 const ACA = { token: 'ACA' };
 const AUSD = { token: 'AUSD' };
 const RENBTC = { token: 'RENBTC' };
 
-(async () => {
+export const simulateLiquidateCDP = async () => {
   const ctx: Context = await setup();
   const [alice, bob] = await ctx.makeAccounts(2);
 
@@ -39,9 +37,4 @@ const RENBTC = { token: 'RENBTC' };
   await ctx.send(ctx.tx.honzon.adjustLoan(RENBTC, renbtc(1), ausd(50_000)), bob).inBlock;
 
   await ctx.tx.cdpEngine.liquidate(RENBTC, alice.address).send();
-})()
-  .then(() => process.exit())
-  .catch((error) => {
-    console.error(error);
-    process.exit(-1);
-  });
+}
