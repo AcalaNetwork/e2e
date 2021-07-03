@@ -10,7 +10,8 @@
     "typescript": "4.0.5"
   },
   "bin": {
-    "simulate-liquidate-cdp": "scripts/simulate_liquidate_cdp.js"
+    "simulate-liquidate-cdp": "scripts/simulate-liquidate-cdp.js",
+    "simulate-loan": "scripts/simulate-loan.js"
   },
   "scripts": {
     "build": "tsc",
@@ -19,7 +20,8 @@
     "jest": "polkadot-dev-run-test --detectOpenHandles --runInBand --passWithNoTests --verbose",
     "lint": "polkadot-dev-run-lint",
     "build-and-publish": "scripts/build-and-publish",
-    "dev:simulate_liquidate_cdp": "ts-node src/scripts/simulate_liquidate_cdp.ts"
+    "dev:simulate-liquidate-cdp": "ts-node src/scripts/simulate-liquidate-cdp.ts",
+    "dev:simulate-loan": "ts-node src/scripts/simulate-loan.ts"
   },
   "dependencies": {
     "@acala-network/api": "^0.7.4-18",

@@ -1,3 +1,11 @@
+import { simulateLoan } from './simulate-loan';
+import { simulateLiquidateCDP } from './simulate-liquidate-cdp';
+
 export * from './helper';
 export * from './utils';
-export * from './simulate_liquidate_cdp';
+
+// for testing purpose
+export const testing = {
+  simulateLoan,
+  simulateLiquidateCDP
+};

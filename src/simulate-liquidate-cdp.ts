@@ -22,7 +22,7 @@ export const simulateLiquidateCDP = async () => {
   }
 
   await ctx.feedPrice(RENBTC, price(10_000)).send;
-  await ctx.send(ctx.tx.dex.addLiquidity(AUSD, RENBTC, ausd(100), renbtc(1_000_000), 0, false), alice).send;
+  await ctx.send(ctx.tx.dex.addLiquidity(AUSD, RENBTC, ausd(1_000_000), renbtc(100), 0, false), alice).send;
   await ctx.sudo(
     ctx.tx.cdpEngine.setCollateralParams(
       RENBTC,
@@ -37,4 +37,5 @@ export const simulateLiquidateCDP = async () => {
   await ctx.send(ctx.tx.honzon.adjustLoan(RENBTC, renbtc(1), ausd(50_000)), bob).inBlock;
 
   await ctx.tx.cdpEngine.liquidate(RENBTC, alice.address).send();
+  await ctx.teardown();
 };
