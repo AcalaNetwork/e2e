@@ -24,7 +24,7 @@
     "dev:simulate-loan": "ts-node src/scripts/simulate-loan.ts"
   },
   "dependencies": {
-    "@acala-network/api": "^0.7.4-18",
+    "@acala-network/api": "^1.0.1",
     "@open-web3/api": "^0.9.4-9",
     "@open-web3/util": "^0.9.4-9",
     "@polkadot/api": "^4.14.1",
