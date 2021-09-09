@@ -24,28 +24,28 @@
     "dev:simulate-loan": "ts-node src/scripts/simulate-loan.ts"
   },
   "dependencies": {
-    "@acala-network/api": "^1.0.1",
-    "@open-web3/api": "^0.9.4-9",
-    "@open-web3/util": "^0.9.4-9",
-    "@polkadot/api": "^4.14.1",
+    "@acala-network/api": "^2.2.2-4",
+    "@open-web3/api": "^0.9.4-34",
+    "@open-web3/util": "^0.9.4-34",
+    "@polkadot/api": "^5.6.2-5",
     "@polkadot/dev": "^0.62.42",
-    "@polkadot/keyring": "^6.8.1",
-    "@polkadot/rpc-provider": "^4.14.1",
-    "@polkadot/util": "^6.8.1",
-    "@polkadot/util-crypto": "^6.8.1",
+    "@polkadot/keyring": "^7.3.1",
+    "@polkadot/rpc-provider": "^5.8.3",
+    "@polkadot/util": "^7.3.1",
+    "@polkadot/util-crypto": "^7.3.1",
     "big.js": "^6.1.1",
     "dotenv": "^10.0.0"
   },
   "devDependencies": {
     "@open-web3/dev-config": "^0.1.13",
-    "@types/big.js": "6.1.1",
+    "@types/big.js": "6.1.2",
     "@types/bn.js": "5.1.0",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.12.3",
-    "husky": "^6.0.0",
-    "jest": "^27.0.4",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "husky": "^7.0.2",
+    "jest": "^27.1.0",
     "pretty-quick": "^3.1.1",
-    "ts-node": "^10.0.0"
+    "ts-node": "^10.2.1"
   },
   "husky": {
     "hooks": {

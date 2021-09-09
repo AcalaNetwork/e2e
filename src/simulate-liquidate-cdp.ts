@@ -33,7 +33,7 @@ export const simulateLiquidateCDP = async () => {
       { NewValue: ausd(1_000_000) } // maximum_total_debit_value
     )
   ).send;
-  await ctx.send(ctx.tx.honzon.adjustLoan(RENBTC, renbtc(10), ausd(500_000)), alice).send;
+  await ctx.send(ctx.tx.honzon.adjustLoan(RENBTC, renbtc(10), ausd(500_000)), alice).inBlock;
   await ctx.send(ctx.tx.honzon.adjustLoan(RENBTC, renbtc(1), ausd(50_000)), bob).inBlock;
 
   await ctx.tx.cdpEngine.liquidate(RENBTC, alice.address).send();
