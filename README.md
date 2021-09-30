@@ -1,40 +1,64 @@
-# e2e
+# E2E tests & simulations
 
-## Simulate CDP liquidation
+To run the simulation you need to local Acala node
 
-1. start acala local node
-2. `npx -p @acala-network/e2e@latest simulate-liquidate-cdp`
+### Running Acala local node
 
-default env args
-
-```
-process.env.WS_URL = 'ws://localhost::9944' # node endpoint
-process.env.SURI = '//Alice' # sudo account
-```
-
-optional env args
-
-```
-process.env.BIDDER_ADDRESS # will give bidder 1m aUSD and 1k ACA
+Using `docker`:
+```shell=
+docker run --rm -p 9944:9944 acala/mandala-node:latest \
+--dev --ws-external --rpc-methods=unsafe \
+--instant-sealing  -levm=trace --tmp
 ```
 
-## Simulate loan collateral ratio dropping
-
-1. start acala local node
-2. `npx -p @acala-network/e2e@latest simulate-loan`
-
-default env args
-
+To build the project without Docker use the guidelines here:
+[**AcalaNetwork/Acala**](https://github.com/AcalaNetwork/Acala)
+Run the node with:
 ```
-process.env.WS_URL = 'ws://localhost::9944' # node endpoint
-process.env.SURI = '//Alice' # sudo account
+cargo run -- --dev --tmp
 ```
 
-required env args
+### Simulations settings
 
-```
-process.env.ADDRESS # will create a RENBTC loan for the given address
+Environment variables used in simulations you can find in [.env](https://github.com/AcalaNetwork/e2e/blob/master/.env) file, feel free to change them:
+
+```bash=
+WS_URL=ws://localhost::9944
+SURI=//Alice
+
+# required for loan price drop simulation
+# will create a RENBTC loan for the given address
+ADDRESS=5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y  
 ```
 
-## Development
-- Run e2e tests: `BINARY_PATH=<acala binary path> yarn test:e2e`
+##  Liquidation Simulation 
+
+
+The liquidation simulation script will work only for your local Acala testnet, you should ensure that it's running.
+
+
+Install dependencies:
+```
+yarn
+```
+
+Run simulation:
+```shell=
+yarn dev:simulate-liquidate-cdp
+```
+
+##  Loan collateral ratio drop Simulation 
+
+
+The Loan collater ratio drop simulation script will work only for your local Acala testnet, you should ensure that it's running.
+
+
+Install dependencies:
+```
+yarn
+```
+
+Run simulation:
+```shell=
+yarn dev:simulate-loan
+```

@@ -1,4 +1,5 @@
-import { config as dotenv } from 'dotenv';
+import dotenv from 'dotenv';
+
 import Big from 'big.js';
 import { options } from '@acala-network/api';
 import { WsProvider } from '@polkadot/rpc-provider';
@@ -8,11 +9,11 @@ import { KeyringPair } from '@polkadot/keyring/types';
 import { SubmittableExtrinsic } from '@polkadot/api/types';
 import { xxhashAsHex } from '@polkadot/util-crypto';
 
-dotenv();
+dotenv.config();
 
 export const config = {
-  ws: process.env.WS_URL || 'ws://localhost::9944',
-  suri: process.env.SURI || '//Alice'
+  ws: process.env.WS_URL,
+  suri: process.env.SURI
 };
 
 export const createApi = async (extend?: Partial<typeof config>) => {
