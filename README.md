@@ -1,12 +1,12 @@
 # E2E tests & simulations
 
-To run the simulation you need to local Acala node
+To run the simulation you need to local Karura node
 
-### Running Acala local node
+### Running Karura local node
 
 Using `docker`:
 ```shell=
-docker run --rm -p 9944:9944 acala/mandala-node:latest \
+docker run --rm -p 9944:9944 acala/karura-node:1.5.0 \
 --dev --ws-external --rpc-methods=unsafe \
 --instant-sealing  -levm=trace --tmp
 ```
@@ -50,7 +50,7 @@ yarn dev:simulate-liquidate-cdp
 ##  Loan collateral ratio drop Simulation 
 
 
-The Loan collater ratio drop simulation script will work only for your local Acala testnet, you should ensure that it's running.
+The Loan collater ratio drop simulation script will work only for your local Karura testnet, you should ensure that it's running.
 
 
 Install dependencies:
