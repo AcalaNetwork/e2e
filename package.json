@@ -20,8 +20,8 @@
     "jest": "polkadot-dev-run-test --detectOpenHandles --runInBand --passWithNoTests --verbose",
     "lint": "polkadot-dev-run-lint",
     "build-and-publish": "scripts/build-and-publish",
-    "dev:simulate-liquidate-cdp": "ts-node src/scripts/simulate-liquidate-cdp.ts",
-    "dev:simulate-loan": "ts-node src/scripts/simulate-loan.ts"
+    "dev:simulate-liquidate-cdp": "BIDDER_ADDRESS=5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y ts-node src/scripts/simulate-liquidate-cdp.ts",
+    "dev:simulate-loan": "ADDRESS=5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y ts-node src/scripts/simulate-loan.ts"
   },
   "dependencies": {
     "@acala-network/api": "^2.2.2-4",
