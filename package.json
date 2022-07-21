@@ -6,46 +6,40 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "resolutions": {
-    "typescript": "4.0.5"
-  },
   "bin": {
     "simulate-liquidate-cdp": "scripts/simulate-liquidate-cdp.js",
     "simulate-loan": "scripts/simulate-loan.js"
   },
   "scripts": {
     "build": "tsc",
-    "test": "yarn jest --testPathIgnorePatterns e2e",
-    "test:e2e": "yarn jest",
-    "jest": "polkadot-dev-run-test --detectOpenHandles --runInBand --passWithNoTests --verbose",
-    "lint": "polkadot-dev-run-lint",
+    "test": "jest --runInBand --forceExit --passWithNoTests --verbose",
+    "lint": "polkadot-exec-eslint --fix --resolve-plugins-relative-to ./node_modules/@open-web3/dev-config/scripts --ext .js,.ts .",
     "build-and-publish": "scripts/build-and-publish",
     "dev:simulate-liquidate-cdp": "BIDDER_ADDRESS=5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y ts-node src/scripts/simulate-liquidate-cdp.ts",
     "dev:simulate-loan": "ADDRESS=5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y ts-node src/scripts/simulate-loan.ts"
   },
   "dependencies": {
-    "@acala-network/api": "^3.0.2",
-    "@open-web3/api": "^1.0.2-2",
-    "@open-web3/util": "^1.0.2-2",
-    "@polkadot/api": "^6.7.2",
-    "@polkadot/dev": "^0.63.27",
-    "@polkadot/keyring": "^7.8.2",
-    "@polkadot/rpc-provider": "^6.7.2",
-    "@polkadot/util": "^7.8.2",
-    "@polkadot/util-crypto": "^7.8.2",
-    "big.js": "^6.1.1",
-    "dotenv": "^10.0.0"
+    "@acala-network/api": "^4.1.5",
+    "@open-web3/api": "^2.0.1",
+    "@polkadot/dev": "^0.67.77",
+    "@polkadot/keyring": "^10.0.2",
+    "big.js": "^6.2.1",
+    "dotenv": "^16.0.1",
+    "get-port": "^6.1.2",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@open-web3/dev-config": "^0.1.13",
-    "@types/big.js": "6.1.2",
+    "@open-web3/dev-config": "^0.2.3",
+    "@types/big.js": "6.1.5",
     "@types/bn.js": "5.1.0",
-    "@types/jest": "^27.0.2",
-    "@types/node": "^16.11.7",
-    "husky": "^7.0.4",
-    "jest": "^27.3.1",
-    "pretty-quick": "^3.1.1",
-    "ts-node": "^10.4.0"
+    "@types/jest": "^28.1.5",
+    "@types/lodash": "^4.14.182",
+    "@types/node": "^18.0.4",
+    "husky": "^8.0.1",
+    "jest": "^28.1.3",
+    "pretty-quick": "^3.1.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
   },
   "husky": {
     "hooks": {

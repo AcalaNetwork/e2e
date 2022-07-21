@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { simulateLoan } from '../simulate-loan';
+import { simulateLoan } from '../testing/simulate-loan';
 
 simulateLoan().catch((error) => {
   console.error(error);

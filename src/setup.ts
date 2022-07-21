@@ -8,18 +8,25 @@ import { ApiManager } from '@open-web3/api';
 import { KeyringPair } from '@polkadot/keyring/types';
 import { SubmittableExtrinsic } from '@polkadot/api/types';
 import { xxhashAsHex } from '@polkadot/util-crypto';
+import { queryRemoteChainState } from './queryRemoteChainState';
+import { setStorage } from './setStorage';
 
 dotenv.config();
 
-export const config = {
+interface Config {
+  ws?: string;
+  provider?: WsProvider;
+  suri?: string;
+}
+
+export const config: Config = {
   ws: process.env.WS_URL,
   suri: process.env.SURI
 };
 
-export const createApi = async (extend?: Partial<typeof config>) => {
-  const { ws } = { ...config, ...extend };
-  const provider = new WsProvider(ws);
-  const apiManager = await ApiManager.create(options({ provider }));
+export const createApi = async (extend?: Partial<Config>) => {
+  const { ws, provider } = { ...config, ...extend };
+  const apiManager = await ApiManager.create({ ...options(), provider: provider || new WsProvider(ws) });
 
   return {
     apiManager,
@@ -49,10 +56,15 @@ function getModulePrefix(module: string): string {
   return xxhashAsHex(module, 128);
 }
 
-export const setup = async (extend?: Partial<typeof config>) => {
-  const { ws, suri } = { ...config, ...extend };
+export const setup = async (extend?: Partial<Config>) => {
+  const { ws, provider, suri } = { ...config, ...extend };
   const keyring = new Keyring({ type: 'sr25519' });
-  const apiManager = await ApiManager.create({ ...options(), wsEndpoint: ws, account: suri, keyring });
+  const apiManager = await ApiManager.create({
+    ...options(),
+    provider: provider || new WsProvider(ws),
+    account: suri,
+    keyring
+  });
   const api = apiManager.api;
   const account = apiManager.defaultAccount!; // eslint-disable-line
 
@@ -63,7 +75,7 @@ export const setup = async (extend?: Partial<typeof config>) => {
     account,
     tx: api.tx,
     async teardown() {
-      this.api.disconnect();
+      await this.api.disconnect();
       await new Promise((resolve) => setTimeout(resolve, 2000)); // give some time to cleanup
     },
     async makeAccounts(count: number, bal: BalanceType = aca(1)) {
@@ -99,6 +111,17 @@ export const setup = async (extend?: Partial<typeof config>) => {
     },
     sudo(call: SubmittableExtrinsic<'promise'>) {
       return this.send(this.api.tx.sudo.sudo(call));
+    },
+    async syncStorageWithRemote(
+      wsUrl: string,
+      storageConfig: Record<string, null | Record<string, null | Array<any>>>,
+      at?: string // latest hash if not specified
+    ) {
+      const storage = await queryRemoteChainState(wsUrl, storageConfig, at);
+      await this.setStorage(storage);
+    },
+    async setStorage(storage: [string, string][] | Record<string, Record<string, any | [any, any][]>>) {
+      await setStorage(this, storage);
     },
     killModuleStorage(module: string) {
       return this.sudo(this.tx.system.killPrefix(getModulePrefix(module), 0));
