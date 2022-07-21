@@ -65,6 +65,14 @@ function objectToStorageItems(
   return storageItems;
 }
 
+/**
+ * Place storage into local running test node
+ *
+ * For examples view test file `__tests__/e2e/describeWithAcala.test.ts`
+ *
+ * @param ctx context
+ * @param storage storage configuration
+ */
 export const setStorage = async (
   ctx: Context,
   storage: [string, string][] | Record<string, Record<string, any | Record<string, any>>>

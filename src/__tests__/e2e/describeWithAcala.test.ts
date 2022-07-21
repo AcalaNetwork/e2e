@@ -2,11 +2,12 @@ import { describeWithAcala } from '../../describeWithAcala';
 
 const REMOTE_URL = 'wss://acala-polkadot.api.onfinality.io/public-ws';
 
-describeWithAcala('Acala Chain', function (context) {
+describeWithAcala('Acala Chain', function (ctx) {
+  // WARNING: ctx is not available here
   it('works', async function () {
-    expect((await context.api.query.technicalCommittee.members<any>()).toJSON().length).toBe(1);
+    expect((await ctx.api.query.technicalCommittee.members<any>()).toJSON().length).toBe(1);
 
-    await context.syncStorageWithRemote(
+    await ctx.syncStorageWithRemote(
       REMOTE_URL,
       {
         TechnicalCommittee: {
@@ -15,16 +16,17 @@ describeWithAcala('Acala Chain', function (context) {
       }
     );
 
-    expect((await context.api.query.technicalCommittee.members<any>()).toJSON().length).toBe(3);
-    expect((await context.api.query.idleScheduler.nextTaskId<any>()).toString()).toBe('0');
+    expect((await ctx.api.query.technicalCommittee.members<any>()).toJSON().length).toBe(3);
+    expect((await ctx.api.query.idleScheduler.nextTaskId<any>()).toString()).toBe('0');
 
-    await context.setStorage([
+    // can set raw storage
+    await ctx.setStorage([
       ['0x027a4e29b47efb389eca0f0ba7a8d619de42bca67c783faefa9c0e5df6620f83', '0xd3040000']
     ]);
 
-    expect((await context.api.query.idleScheduler.nextTaskId<any>()).toString()).toBe('1235');
+    expect((await ctx.api.query.idleScheduler.nextTaskId<any>()).toString()).toBe('1235');
 
-    await context.setStorage({
+    await ctx.setStorage({
       TechnicalCommittee: {
         Members: ['5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY']
       },
@@ -61,7 +63,7 @@ describeWithAcala('Acala Chain', function (context) {
       }
     });
 
-    expect((await context.api.query.technicalCommittee.members<any>()).toJSON().length).toBe(1);
-    expect((await context.api.query.idleScheduler.nextTaskId<any>()).toString()).toBe('1234');
+    expect((await ctx.api.query.technicalCommittee.members<any>()).toJSON().length).toBe(1);
+    expect((await ctx.api.query.idleScheduler.nextTaskId<any>()).toString()).toBe('1234');
   }, 60_000);
 });

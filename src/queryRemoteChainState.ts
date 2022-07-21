@@ -4,6 +4,38 @@ import { ApiManager } from '@open-web3/api';
 import { Codec } from '@polkadot/types-codec/types';
 import { H256 } from '@polkadot/types/interfaces';
 
+/**
+ * Query remote chain state
+ *
+ * ```
+    queryRemoteChainState(url, {
+        Treasury: null, // null or empty means query all storages
+        Bounties: {
+            Bounties: [0]
+        },
+        Dex: {
+            LiquidityPool: null // null or empty means query all keys
+        },
+        AcalaOracle: {
+            Values: [{token:'ACA'}]
+        },
+        EVM: {
+            ChainId: null // query plain storage
+        },
+        Tokens: {
+            Accounts: [
+              ['23RDJ7SyVgpKqC6M9ad8wvbBsbSr3R4Xqr5NQAKEhWPHbLbs', {token:'DOT'}], // keys
+              ['23RDJ7SyVgpKqC6M9ad8wvbBsbSr3R4Xqr5NQAKEhWPHbLbs', {token:'LDOT'}] // keys
+            ]
+        }
+    }, blockHash)
+ * ```
+ *
+ * @param wsUrl Remote chain websocket URL
+ * @param storageConfig Storage configuration
+ * @param at Block hash
+ * @returns Raw storage items
+ */
 export async function queryRemoteChainState(
   wsUrl: string,
   storageConfig: Record<string, null | Record<string, null | Array<any>>>,
