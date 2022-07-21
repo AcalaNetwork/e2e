@@ -75,7 +75,5 @@ export const setStorage = async (
   } else {
     storageItems = objectToStorageItems(ctx.api, storage);
   }
-  console.log(storageItems);
-
   await ctx.sudo(ctx.api.tx.system.setStorage(storageItems)).inBlock;
 };
