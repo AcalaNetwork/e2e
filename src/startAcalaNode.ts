@@ -7,7 +7,7 @@ const BINARY_PATH = process.env.BINARY_PATH;
 const DISPLAY_LOG = process.env.LOG || false;
 const ACALA_LOG = process.env.ACALA_LOG || 'info';
 
-const DOCKER_IMAGE = 'ghcr.io/acalanetwork/mandala-node:sha-0910ce3';
+const DOCKER_IMAGE = process.env.DOCKER_IMAGE || 'ghcr.io/acalanetwork/mandala-node:sha-0910ce3';
 
 export const startAcalaNode = async (): Promise<{
   binary: ChildProcess;
