@@ -26,8 +26,8 @@ describeWithAcala('context', function (ctx) {
       )
     ).send;
     await ctx.send(ctx.tx.honzon.adjustLoan(RENBTC, renbtc(10), ausd(500_000)), alice).send;
-    await ctx.send(ctx.tx.honzon.adjustLoan(RENBTC, renbtc(1), ausd(50_000)), bob).inBlock;
+    await ctx.send(ctx.tx.honzon.adjustLoan(RENBTC, renbtc(1), ausd(50_000)), bob).send;
     await ctx.feedPrice(RENBTC, price(8_000)).inBlock;
     await ctx.tx.cdpEngine.liquidate(RENBTC, alice.address).send();
-  }, 60_000);
+  }, 120_000);
 });

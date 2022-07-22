@@ -65,5 +65,5 @@ describeWithAcala('Acala Chain', function (ctx) {
 
     expect((await ctx.api.query.technicalCommittee.members<any>()).toJSON().length).toBe(1);
     expect((await ctx.api.query.idleScheduler.nextTaskId<any>()).toString()).toBe('1234');
-  }, 60_000);
+  }, 120_000);
 });

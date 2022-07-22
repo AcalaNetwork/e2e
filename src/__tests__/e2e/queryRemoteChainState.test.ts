@@ -35,4 +35,4 @@ it('query remote chain state', async function () {
         const expected = (await api.rpc.state.getStorage<any>(key, BLOCK_HASH)).toString();
         expected && expect(expected).toBe(value);
     }
-}, 60_000);
+}, 120_000);
