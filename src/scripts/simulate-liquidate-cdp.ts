@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { simulateLiquidateCDP } from '../simulate-liquidate-cdp';
+import { simulateLiquidateCDP } from '../testing/simulate-liquidate-cdp';
 
 simulateLiquidateCDP().catch((error) => {
   console.error(error);

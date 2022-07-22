@@ -1,4 +1,4 @@
-import { Context, setup, rate, ratio, price, aca, ausd, dot } from './helper';
+import { Context, setup, rate, ratio, price, aca, ausd, dot } from '../setup';
 
 const ACA = { token: 'ACA' };
 const AUSD = { token: 'AUSD' };

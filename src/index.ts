@@ -1,8 +1,9 @@
-import { simulateLoan } from './simulate-loan';
-import { simulateLiquidateCDP } from './simulate-liquidate-cdp';
+import { simulateLoan } from './testing/simulate-loan';
+import { simulateLiquidateCDP } from './testing/simulate-liquidate-cdp';
 
-export * from './helper';
-export * from './utils';
+export * from './setup';
+export * from './startAcalaNode';
+export * from './describeWithAcala';
 
 // for testing purpose
 export const testing = {
